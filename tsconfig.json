@@ -2,12 +2,13 @@
   "extends": "tslint-config-airbnb",
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
+    "module": "esnext",
     "noImplicitAny": true,
     "removeComments": true,
     "sourceMap": false,
     "jsx": "react",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "moduleResolution": "node"
   },
   "include": [
     "./src"
