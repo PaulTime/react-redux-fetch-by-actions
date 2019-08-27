@@ -5,13 +5,15 @@
     "module": "es2015",
     "noImplicitAny": true,
     "removeComments": true,
-    "sourceMap": false
+    "sourceMap": false,
+    "jsx": "react",
+    "baseUrl": "./src"
   },
   "include": [
-    "src/**/*"
+    "./src"
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "build"
   ]
 }

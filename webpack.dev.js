@@ -7,7 +7,7 @@ const { PUBLIC_PATH = '/', API_HOST = '/', NODE_ENV = 'development' } = process.
 module.exports = {
     target: 'web',
 
-    entry: './src/index.ts',
+    entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, 'build'),
         publicPath: PUBLIC_PATH,
@@ -40,6 +40,7 @@ module.exports = {
     },
 
     resolve: {
+        extensions: [".ts", ".tsx", ".js"],
         modules: [
             'src',
             'node_modules',
@@ -48,7 +49,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js|.ts$/,
+                test: /\.js?x|.ts?x$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
             },

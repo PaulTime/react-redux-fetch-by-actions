@@ -11,7 +11,14 @@
       "jsx":  true
     }
   },
-  "rules":  {},
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "typescript/no-var-requires": "off"
+      }
+    }
+  ],
   "settings":  {
     "react":  {
       "version":  "detect"
