@@ -1,0 +1,52 @@
+{
+  "name": "auto-lookup",
+  "version": "1.0.0",
+  "description": "app for looking cars by their numbers, written in typescript",
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config ./webpack.dev.js",
+    "start:server": "node server",
+    "eslint": "eslint ./src/**/*"
+  },
+  "dependencies": {
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-router": "^5.0.3",
+    "@types/react-router-dom": "^4.3.5",
+    "@types/redux-actions": "^2.6.1",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "bem-join": "^1.2.0",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.2.2",
+    "file-loader": "^4.2.0",
+    "postcss": "^7.0.17",
+    "postcss-preset-env": "^6.7.0",
+    "reselect": "^4.0.0",
+    "style-loader": "^1.0.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^3.0.0",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaulTime/auto-lookup/issues"
+  },
+  "homepage": "https://github.com/PaulTime/auto-lookup#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulTime/auto-lookup.git"
+  }
+}
