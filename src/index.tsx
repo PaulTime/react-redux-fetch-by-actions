@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import Routes from 'containers/routes';
@@ -11,7 +11,7 @@ function render(Component: React.ElementType): void {
     <BrowserRouter basename={process.env.PUBLIC_PATH}>
       <Component />
     </BrowserRouter>
-  ), document.getElementById('root'));
+  ), document.getElementById('root') as HTMLDivElement);
 }
 
 render(Routes);

@@ -1,9 +1,14 @@
-import * as React from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-const Routes: React.ElementType = () => (
+import LayoutRoute from 'containers/layouts/LayoutRoute';
+import CabinetLayout from 'containers/layouts/Cabinet';
+
+const Routes: React.FC = () => (
   <Switch>
-    <Route render={(): React.ReactNode => 'test'}/>
+    <LayoutRoute component={CabinetLayout}>
+      <Route render={(): React.ReactNode => 'test'}/>
+    </LayoutRoute>
   </Switch>
 );
 
