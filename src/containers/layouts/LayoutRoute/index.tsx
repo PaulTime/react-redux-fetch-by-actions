@@ -1,14 +1,16 @@
 import React from 'react';
 import H from 'history';
-import { RouteProps } from 'react-router';
+import { RouteProps, RouteChildrenProps } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
-import qs from 'query-string';
+import qs, { ParsedQuery } from 'query-string';
 
-interface Props {
-  children: React.ReactElement<RouteProps> | Array<React.ReactElement<RouteProps>>;
-  component?: React.ElementType;
-  location?: H.Location;
-  path?: string;
+type Props = RouteProps & {
+  children: React.ReactNode | React.ReactNodeArray;
+  component: React.ElementType;
+}
+
+type LocationExtended = H.Location & {
+  query: ParsedQuery;
 }
 
 /**
@@ -34,10 +36,10 @@ interface Props {
 const LayoutRoute: React.FC<Props> = ({ children, component: Component, path, location, ...rest }: Props) => (
   <Route
     path={path}
-    render={(): React.ReactElement => (
-      <Component>
-        <Switch location={{ ...location, query: qs.parse(location.search) } as H.Location}>
-          {React.Children.map(children, child =>
+    render={(props: RouteChildrenProps): React.ReactElement<Route> => (
+      <Component {...props}>
+        <Switch location={{ ...location, query: qs.parse(location.search) } as LocationExtended}>
+          {React.Children.map(children, (child: React.ReactElement<RouteProps>) =>
             React.cloneElement(child, {
               path: `${path || ''}${child.props.path || ''}`,
             }))}
@@ -48,5 +50,4 @@ const LayoutRoute: React.FC<Props> = ({ children, component: Component, path, lo
   />
 );
 
-
-export default LayoutRoute;
+export default React.memo(LayoutRoute);
