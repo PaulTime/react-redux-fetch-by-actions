@@ -1,0 +1,9 @@
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  &__submit {
+    margin-left: 4px;
+  }
+}
