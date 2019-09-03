@@ -1,5 +1,6 @@
 import React from 'react';
-import { AnyObject } from 'react-final-form';
+
+import { AnyObject } from 'types';
 
 export type TValue<V = any> = V; // eslint-disable-line @typescript-eslint/no-explicit-any
 export type TError<E = string | undefined> = E;
