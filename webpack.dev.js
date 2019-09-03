@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const { PUBLIC_PATH = '/', API_HOST = '/', NODE_ENV = 'development' } = process.env;
+const { PUBLIC_PATH = '/', API_HOST = 'http://localhost:8080', NODE_ENV = 'development' } = process.env;
 
 module.exports = {
   target: 'web',

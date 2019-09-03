@@ -8,8 +8,10 @@ type TProps = {
   loader?: boolean;
   watch?: DependencyList;
   children?: React.ReactElement | Function;
-  onSuccess?: { (data?: any): Promise<any> | any }; // eslint-disable-line @typescript-eslint/no-explicit-any
-  onError?: { (data?: any): Promise<any> | any }; // eslint-disable-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onSuccess?: { (data?: AnyObject): Promise<any> | any };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onError?: { (data?: AnyObject): Promise<any> | any };
 };
 
 /**

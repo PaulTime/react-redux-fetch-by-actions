@@ -3,11 +3,12 @@ import { Switch, Route } from 'react-router-dom';
 
 import LayoutRoute from 'containers/layouts/LayoutRoute';
 import CabinetLayout from 'containers/layouts/Cabinet';
+import HintPage from 'containers/pages/Hint';
 
 const Routes: React.FC = () => (
   <Switch>
     <LayoutRoute component={CabinetLayout}>
-      <Route render={(): React.ReactNode => 'test'}/>
+      <Route component={HintPage}/>
     </LayoutRoute>
   </Switch>
 );

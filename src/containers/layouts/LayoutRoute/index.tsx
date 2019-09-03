@@ -1,16 +1,13 @@
 import React from 'react';
-import H from 'history';
 import { RouteProps, RouteChildrenProps } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
-import qs, { ParsedQuery } from 'query-string';
+import qs from 'query-string';
+
+import { LocationExtended } from 'types';
 
 type Props = RouteProps & {
   children: React.ReactNode | React.ReactNodeArray;
   component: React.ElementType;
-}
-
-type LocationExtended = H.Location & {
-  query: ParsedQuery;
 }
 
 /**
