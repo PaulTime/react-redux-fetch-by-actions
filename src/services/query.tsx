@@ -53,6 +53,8 @@ const Query: React.FC<TProps> = ({ action, when, loader, watch, onSuccess, onErr
       currentFetch.current = Math.random();
       fetch(currentFetch.current);
     }
+
+    return (): void => currentFetch.current = undefined;
   }, watch);
 
   if (loader && state.loading) {
