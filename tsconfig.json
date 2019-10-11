@@ -9,11 +9,13 @@
     "jsx": "react",
     "baseUrl": "./lib",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "include": [
     "./lib"
   ],
+  "typeRoots": [ "./lib/types", "./node_modules/@types"],
   "exclude": [
     "node_modules",
     "dist"
