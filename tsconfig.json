@@ -7,7 +7,7 @@
     "removeComments": true,
     "sourceMap": false,
     "jsx": "react",
-    "baseUrl": "./src",
+    "baseUrl": "./lib",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
