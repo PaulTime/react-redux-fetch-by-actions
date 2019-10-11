@@ -1,71 +1,20 @@
 {
-  "name": "auto-lookup",
-  "version": "1.0.0",
-  "description": "app for looking cars by their numbers, written in typescript",
-  "main": "build/index.js",
+  "name": "react-redux-fetch-by-actions",
+  "version": "0.0.1",
+  "description": "react utils(component, hook, etc) for fetching listening redux action types",
+  "main": "dist/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./webpack.dev.js",
-    "start:server": "node server",
-    "eslint": "eslint ./src/**/*"
-  },
-  "dependencies": {
-    "bem-join": "^1.2.0",
-    "final-form": "^4.18.5",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-final-form": "^6.3.0",
-    "react-router-dom": "^5.0.1",
-    "redux": "^4.0.4",
-    "reselect": "^4.0.0",
-    "query-string": "^6.8.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/preset-typescript": "^7.3.3",
-    "@babel/runtime": "^7.5.5",
-    "@types/history": "^4.7.3",
-    "@types/react-redux": "^7.1.2",
-    "@types/react-router": "^5.0.3",
-    "@types/react-router-dom": "^4.3.5",
-    "@types/redux-actions": "^2.6.1",
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "@types/node": "^12.7.2",
-    "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.9.0",
-    "@types/webpack-env": "^1.14.0",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
-    "postcss": "^7.0.17",
-    "postcss-preset-env": "^6.7.0",
-    "prop-types": "^15.7.2",
-    "eslint": "^6.2.2",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-react": "^7.14.3",
-    "file-loader": "^4.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^1.0.0",
-    "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.5.3",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
-    "postcss-loader": "^3.0.0",
-    "stylelint": "^10.1.0",
-    "stylelint-config-recommended-scss": "^3.3.0",
-    "stylelint-scss": "^3.10.0",
-    "webpack-dev-server": "^3.8.0"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PaulTime/auto-lookup/issues"
+    "url": "https://github.com/PaulTime/react-redux-fetch-by-actions/issues"
   },
-  "homepage": "https://github.com/PaulTime/auto-lookup#readme",
+  "homepage": "https://github.com/PaulTime/react-redux-fetch-by-actions#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PaulTime/auto-lookup.git"
+    "url": "git+https://github.com/PaulTime/react-redux-fetch-by-actions.git"
   }
 }

@@ -1,1 +1,1 @@
-# auto-lookup
+# react-redux-fetch-by-actions

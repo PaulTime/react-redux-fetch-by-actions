@@ -1,7 +1,7 @@
 {
   "extends": "tslint-config-airbnb",
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "esnext",
     "noImplicitAny": true,
     "removeComments": true,
@@ -12,10 +12,10 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "./src"
+    "./lib"
   ],
   "exclude": [
     "node_modules",
-    "build"
+    "dist"
   ]
 }
