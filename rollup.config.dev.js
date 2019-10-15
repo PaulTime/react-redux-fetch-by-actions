@@ -5,7 +5,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import packageJson from './package.json';
 
 export default {
-  input: 'lib/index.ts',
+  input: 'lib/index.tsx',
   output: [
     { file: packageJson.main, format: 'es' },
     { file: packageJson.browser, format: 'amd' },
@@ -18,5 +18,6 @@ export default {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
   ],
+  treeshake: false,
   external: Object.keys(packageJson.peerDependencies),
 };

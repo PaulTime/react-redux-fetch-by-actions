@@ -6,7 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import packageJson from './package.json';
 
 export default {
-  input: 'lib/index.ts',
+  input: 'lib/index.tsx',
   output: [
     { file: packageJson.main, format: 'es' },
     { file: packageJson.browser, format: 'amd' },
