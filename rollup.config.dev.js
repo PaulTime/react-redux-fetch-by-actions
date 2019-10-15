@@ -11,7 +11,10 @@ export default {
     { file: packageJson.browser, format: 'amd' },
   ],
   plugins: [
-    resolve(),
+    resolve({
+      exclude: 'node_modules/**',
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    }),
     commonjs(),
     babel({
       exclude: 'node_modules/**',
