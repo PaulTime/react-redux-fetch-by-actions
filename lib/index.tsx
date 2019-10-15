@@ -1,13 +1,15 @@
 import React, { FunctionComponent, ElementType, useRef, useEffect, useState } from 'react';
 import useAsyncFunction from 'react-redux-promise-listener-hook';
 
-import { Any, TCreateFetch } from 'types';
+import { Any, TCreateFetch, CreateFetchFactory } from 'types';
+
+import { createUseFetch } from './useFetch';
 
 interface TState { loading: boolean; injected: Any; error?: Error }
 
 export const createFetch: TCreateFetch = (promiseListener, { defaultLoader }) => {
-  return (options) =>
-    (Component): ElementType => {
+  return (options): CreateFetchFactory => {
+    return { fetchDecorator: (Component): ElementType => {
       const Query: FunctionComponent = (props) => {
         const {
           // listener options
@@ -77,5 +79,6 @@ export const createFetch: TCreateFetch = (promiseListener, { defaultLoader }) =>
       Query.displayName = `withQuery(${Component.displayName || Component.name})`;
 
       return Query;
-    };
+    }, useFetch: createUseFetch(promiseListener) }
+  };
 };
