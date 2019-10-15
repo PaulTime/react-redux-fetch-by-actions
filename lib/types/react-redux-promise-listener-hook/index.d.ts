@@ -27,7 +27,7 @@ declare module 'react-redux-promise-listener-hook' {
   };
 
 
-  export default function createListenerHook(a: Config, b: PromiseListener):
+  export default function createListenerHook(config: Config, listener: PromiseListener):
     (...args: Array<any>) => Promise<any>;
 }
 /* eslint-enable */
