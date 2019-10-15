@@ -17,4 +17,6 @@ export interface QueryConfig {
 }
 
 export type TCreateFetch = (a: PromiseListener, b: Options) =>
-  (p: Config & QueryConfig) => (Component: ElementType) => ReactElement;
+  (p: Config & QueryConfig) =>
+    (Component: ElementType)
+      => ElementType;
