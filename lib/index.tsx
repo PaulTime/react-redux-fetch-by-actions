@@ -34,7 +34,7 @@ const Query: React.FC<Props> = (props) => {
   const [state, setState] = useState<TState>({ loading: filter(props), injected: {} });
 
   const fetch = (fetchId: number): void => {
-    asyncFn(props, state.injected)
+    asyncFn({ ...props, ...state })
       .then((fetched: Any = {}) => {
         if (currentFetch && fetchId !== currentFetch.current) return;
 
