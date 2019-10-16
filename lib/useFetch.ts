@@ -1,21 +1,33 @@
-import { DependencyList, useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Config, PromiseListener } from 'redux-promise-listener';
 import useAsyncFunction from 'react-redux-promise-listener-hook';
 
-import { Any, TUseFetch, FetchState as TState } from 'types';
+import { Any, TUseFetch, FetchState } from 'types';
+
+const defaultConfig = { initialLoading: true };
 
 export const createUseFetch = (listener: PromiseListener): TUseFetch =>
-  (config: Config & { when: boolean; watch: DependencyList; payload: Any }): TState => {
-    const { when, watch, payload } = config;
+  <Payload = Any>(config: Config & { initialLoading?: boolean; payload?: Payload }):
+    FetchState<Payload> & { fetch: () => void } => {
+    const {
+      start,
+      resolve,
+      reject,
+      setPayload,
+      getPayload,
+      getError,
+      initialLoading,
+      payload,
+    } = { ...defaultConfig, ...config };
 
-    const asyncFn = useAsyncFunction(config, listener);
+    const asyncFn = useAsyncFunction({ start, resolve, reject, setPayload, getPayload, getError }, listener);
 
     const currentFetch = useRef<number | undefined>();
-    const [state, setState] = useState<TState>({ loading: when, injected: {} });
-
+    const [state, setState] = useState<FetchState>({ loading: initialLoading, injected: {} });
+  
     const fetch = (fetchId: number): void => {
       asyncFn(payload)
-        .then((fetched: Any = {}) => {
+        .then((fetched: Payload) => {
           if (currentFetch && fetchId !== currentFetch.current) return;
 
           setState({ loading: false, injected: fetched });
@@ -29,15 +41,18 @@ export const createUseFetch = (listener: PromiseListener): TUseFetch =>
         });
     };
 
-    useEffect(() => {
-      setState({ ...state, loading: when });
+    const refetch = (): void => {
+      setState({ injected: {}, error: undefined, loading: true });
+    };
 
-      if (when) {
+    useEffect(() => {
+      if (state.loading) {
+        currentFetch.current = Math.random();
         fetch(currentFetch.current);
       }
 
       return (): void => currentFetch.current = undefined;
-    }, watch || []);
+    }, [state.loading]);
 
-    return state;
+    return { ...state, fetch: refetch };
   };

@@ -1,6 +1,7 @@
 rollup.config.dev.js
 rollup.config.prod.js
 lib
+examples
 package-lock.json
 tsconfig.json
 .eslintrc
