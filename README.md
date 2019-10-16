@@ -1,6 +1,6 @@
 # react-redux-fetch-by-actions
 
-Lightweight helper(*1kb gzip*) utils (**hook, hoc**) for dispatching action types and handling loading inside your components.
+Lightweight(*1kb gzip*) helpers (**hook, hoc**) for dispatching action types and handling loading inside your components.
 Based on [redux-promise-listener](https://www.npmjs.com/package/redux-promise-listener)
 and [react-redux-promise-listener-hook](https://www.npmjs.com/package/react-redux-promise-listener-hook)
 packages
