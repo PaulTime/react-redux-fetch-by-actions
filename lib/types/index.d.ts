@@ -16,11 +16,14 @@ export interface QueryConfig {
 
 export interface FetchState<I = Any>{ loading: boolean; injected: I; error?: Error }
 
-export type TUseFetch = (config: Config & { initialLoading?: boolean; payload?: Any }) => FetchState;
+export type TUseFetch = <Payload = Any>(config: Config & { initialLoading?: boolean; payload?: Any })
+  => FetchState<Payload> & { fetch: () => void };
 
 export type FetchFactory = {
   fetchDecorator: (config: Config & QueryConfig) => (Component: ElementType) => ElementType;
   useFetch: TUseFetch;
 };
 
-export type TCreateFetch = (a: PromiseListener, b: FactoryOptions) => FetchFactory
+export type TCreateFetch = (a: PromiseListener, b?: FactoryOptions) => FetchFactory
+
+export default function createFetch(a: PromiseListener, b?: FactoryOptions): FetchFactory;

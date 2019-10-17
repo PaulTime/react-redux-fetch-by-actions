@@ -2,11 +2,11 @@ import { useRef, useEffect, useState } from 'react';
 import { Config, PromiseListener } from 'redux-promise-listener';
 import useAsyncFunction from 'react-redux-promise-listener-hook';
 
-import { Any, TUseFetch, FetchState } from 'types';
+import { Any, FetchState } from 'types';
 
 const defaultConfig = { initialLoading: true };
 
-export const createUseFetch = (listener: PromiseListener): TUseFetch =>
+export const createUseFetch = (listener: PromiseListener) =>
   <Payload = Any>(config: Config & { initialLoading?: boolean; payload?: Payload }):
     FetchState<Payload> & { fetch: () => void } => {
     const {
@@ -23,6 +23,7 @@ export const createUseFetch = (listener: PromiseListener): TUseFetch =>
     const asyncFn = useAsyncFunction({ start, resolve, reject, setPayload, getPayload, getError }, listener);
 
     const currentFetch = useRef<number | undefined>();
+    const [fetchId, setFetchId] = useState(Math.random());
     const [state, setState] = useState<FetchState>({ loading: initialLoading, injected: {} });
   
     const fetch = (fetchId: number): void => {
@@ -42,6 +43,7 @@ export const createUseFetch = (listener: PromiseListener): TUseFetch =>
     };
 
     const refetch = (): void => {
+      setFetchId(Math.random());
       setState({ injected: {}, error: undefined, loading: true });
     };
 
@@ -51,8 +53,8 @@ export const createUseFetch = (listener: PromiseListener): TUseFetch =>
         fetch(currentFetch.current);
       }
 
-      return (): void => currentFetch.current = undefined;
-    }, [state.loading]);
+      return (): void => { currentFetch.current = Math.random() };
+    }, [fetchId]);
 
     return { ...state, fetch: refetch };
   };

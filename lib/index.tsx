@@ -10,7 +10,7 @@ const defaultOptions = {
   loaderElement: null as React.ReactElement,
 };
 
-export const createFetch: TCreateFetch = (promiseListener, { defaultLoader } = {}) => {
+const createFetch: TCreateFetch = (promiseListener, { defaultLoader } = {}) => {
   const useFetch = createUseFetch(promiseListener);
 
   return {
@@ -54,3 +54,5 @@ export const createFetch: TCreateFetch = (promiseListener, { defaultLoader } = {
     useFetch,
   };
 };
+
+export default createFetch;

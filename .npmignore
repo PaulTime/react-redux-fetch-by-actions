@@ -1,7 +1,9 @@
 rollup.config.dev.js
 rollup.config.prod.js
+
 lib
-examples
+!lib/**/*.d.ts
+
 package-lock.json
 tsconfig.json
 .eslintrc

@@ -1,7 +1,7 @@
 {
   "name": "react-redux-fetch-by-actions",
   "version": "0.0.1",
-  "description": "react utils(component, hook, etc) for fetching listening redux action types",
+  "description": "react utils(hoc, hook, etc) for fetching by listening redux action types",
   "main": "dist/bundle.es.js",
   "browser": "dist/bundle.amd.js",
   "module": "dist/bundle.es.js",
@@ -9,6 +9,7 @@
     "dev": "rollup --watch -c rollup.config.dev.js",
     "prod": "rm -rf dist && rollup -c rollup.config.prod.js"
   },
+  "types": "./lib/types/index.d.ts",
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-transform-runtime": "^7.6.2",
