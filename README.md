@@ -12,7 +12,6 @@ packages
 3. redux
 4. react-redux
 5. react
-6. react-dom
 
 ## Installation and setup
 ``` npm i react-redux-fetch-by-actions```
