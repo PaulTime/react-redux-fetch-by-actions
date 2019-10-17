@@ -1,7 +1,8 @@
 rollup.config.dev.js
 rollup.config.prod.js
 
-lib
+lib/**/*.ts
+lib/**/*.tsx
 !lib/**/*.d.ts
 
 package-lock.json
@@ -9,3 +10,7 @@ tsconfig.json
 .eslintrc
 .babelrc
 .gitignore
+
+.idea
+.vscode
+.DS_Store
