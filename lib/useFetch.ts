@@ -27,7 +27,7 @@ export const createUseFetch = (listener: PromiseListener) =>
     const [state, setState] = useState<FetchState>({ loading: initialLoading, injected: {} });
   
     const fetch = (fetchId: number): void => {
-      asyncFn(payload)
+      asyncFn({ ...state, ...payload })
         .then((fetched: Payload) => {
           if (currentFetch && fetchId !== currentFetch.current) return;
 
