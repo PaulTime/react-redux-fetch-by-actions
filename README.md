@@ -18,46 +18,51 @@ packages
 
 ```$xslt
 // store.js
-import { createStore, applyMiddleware } from 'redux'
-import createReduxPromiseListener from 'redux-promise-listener'
+import { createStore, applyMiddleware } from 'redux';
+import createReduxPromiseListener from 'redux-promise-listener';
 
-const reduxPromiseListener = createReduxPromiseListener()
+const reduxPromiseListener = createReduxPromiseListener();
 const store = createStore(
   reducer,
   initialState,
-  applyMiddleware(...otherMiddleware, reduxPromiseListener.middleware)
-)
-export const promiseListener = reduxPromiseListener // <---- ⚠️ IMPORTANT ⚠️
+  applyMiddleware(...otherMiddleware, reduxPromiseListener.middleware),
+);
+export const promiseListener = reduxPromiseListener; // <---- ⚠️ IMPORTANT ⚠️
 
-export default store
+export default store;
 
 // fetchService.js
-import createFetch from 'react-redux-fetch-by-actions'
-import { promiseListener } from 'store'
+import createFetch from 'react-redux-fetch-by-actions';
+import { promiseListener } from 'store';
 
 const { fetchDecorator, useFetch } = createFetch(promiseListener);
-export { fetchDecorator, useFetch }
+export { fetchDecorator, useFetch };
 
 // Component.jsx
-import React from 'react'
+import React from 'react';
 
-import Loader from 'components/Loader'
-import { useDidUpdate } from 'some-hooks-lib'
-import { useFetch } from 'fetchService'
+import Loader from 'components/Loader';
+import { useDidUpdate } from 'some-hooks-lib';
+import { useFetch } from 'fetchService';
 
 const Component = ({ id }) => {
   const { injected, loading, fetch } = useFetch({
     start: 'start-action-type',
     resolve: 'resolve-action-type',
-    payload: { id },
-  })
+    payload: { id }, // payload to be passed in start action, merged with prevoius injected state
+  });
 
-  useDidUpdate(() => { fetch() }, [id]) // optional
+  useDidUpdate(() => { fetch() }, [id]); // fetch on props update, optional
     
-  if (loading) return <Loader />
+  if (loading) return <Loader />;
     
-  return <div>{data} <button onClick={fetch}>repeat</button></div>
-}
+  return (
+    <div>
+      {injected}
+      <button onClick={fetch}>repeat</button> // mutation, fetch as a callback
+    </div>
+  );
+};
 
 ```
 
