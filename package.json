@@ -1,6 +1,6 @@
 {
   "name": "react-redux-fetch-by-actions",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "react utils(hoc, hook, etc) for fetching by listening redux action types",
   "main": "dist/bundle.es.js",
   "browser": "dist/bundle.amd.js",

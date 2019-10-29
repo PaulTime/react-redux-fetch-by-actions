@@ -30,14 +30,18 @@ const store = createStore(
 export const promiseListener = reduxPromiseListener; // <---- ⚠️ IMPORTANT ⚠️
 
 export default store;
+```
 
+```
 // fetchService.js
 import createFetch from 'react-redux-fetch-by-actions';
 import { promiseListener } from 'store';
 
 const { fetchDecorator, useFetch } = createFetch(promiseListener);
 export { fetchDecorator, useFetch };
+```
 
+```
 // Component.jsx
 import React from 'react';
 
@@ -46,10 +50,10 @@ import { useDidUpdate } from 'some-hooks-lib';
 import { useFetch } from 'fetchService';
 
 const Component = ({ id }) => {
-  const { injected, loading, fetch } = useFetch({
+  const { data, loading, fetch } = useFetch({
     start: 'start-action-type',
     resolve: 'resolve-action-type',
-    payload: { id }, // payload to be passed in start action, merged with prevoius injected state
+    payload: { id }, // payload to be passed in start action, merged with prevoius data state
   });
 
   useDidUpdate(() => { fetch() }, [id]); // fetch on props update, optional
@@ -58,7 +62,7 @@ const Component = ({ id }) => {
     
   return (
     <div>
-      {injected}
+      {data}
       <button onClick={fetch}>repeat</button> // mutation, fetch as a callback
     </div>
   );
