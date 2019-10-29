@@ -14,7 +14,7 @@ export interface QueryConfig {
   loaderElement?: ReactElement;
 }
 
-export interface FetchState<I = Any>{ loading: boolean; injected: I; error?: Error }
+export interface FetchState<I = Any>{ loading: boolean; data: I; error?: Error }
 
 export type TUseFetch = <Payload = Any>(config: Config & { initialLoading?: boolean; payload?: Any })
   => FetchState<Payload> & { fetch: () => void };

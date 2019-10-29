@@ -24,27 +24,27 @@ export const createUseFetch = (listener: PromiseListener) =>
 
     const currentFetch = useRef<number | undefined>();
     const [fetchId, setFetchId] = useState(Math.random());
-    const [state, setState] = useState<FetchState>({ loading: initialLoading, injected: {} });
+    const [state, setState] = useState<FetchState>({ loading: initialLoading, data: {} });
   
     const fetch = (fetchId: number): void => {
       asyncFn({ ...state, ...payload })
         .then((fetched: Payload) => {
           if (currentFetch && fetchId !== currentFetch.current) return;
 
-          setState({ loading: false, injected: fetched });
+          setState({ loading: false, data: fetched });
         })
         .catch((error: Error) => {
           if (currentFetch && fetchId !== currentFetch.current) return;
 
           console.error(error);
 
-          setState({ injected: {}, error, loading: false });
+          setState({ data: {}, error, loading: false });
         });
     };
 
     const refetch = (): void => {
       setFetchId(Math.random());
-      setState({ injected: {}, error: undefined, loading: true });
+      setState({ data: {}, error: undefined, loading: true });
     };
 
     useEffect(() => {
